@@ -70,17 +70,18 @@
 // 7. дан массив 10 чисел. вывести в консоль количество четных
 // элементов из этого массива
 // let arr = new Array(10);
+// let countEvenElement = 0;
 // for (let i = 0; i < arr.length; i++) {
 //     arr[i] = Math.floor(Math.random() * 10);
-//     if (arr[i] % 2 === 0) {
-//         console.log(i);
+//     if (arr[i] % 2 === 0 && arr[i] !== 0) {
+//         countEvenElement++;
 //     }
 // }
-// console.log(arr);
+// console.log(countEvenElement);
 
 // 8. дан массив 10 чисел. вывести наибольшее число из этого массива
 // let arr = new Array(10);
-// let max = 0;
+// let max = Number.MIN_SAFE_INTEGER;
 // for (let i = 0; i < arr.length; i++) {
 //     arr[i] = Math.floor(Math.random() * 10);
 //     if (arr[i] > max) {
@@ -94,7 +95,7 @@
 // найдите количество элементов массива, которые отличны от наибольшего 
 // не больше чем на 10%
 // let arr = new Array(10);
-// let max = 0;
+// let max = Number.MIN_SAFE_INTEGER;
 // for (let i = 0; i < arr.length; i++) {
 //     arr[i] = Math.floor(Math.random() * 100);
 //     if (arr[i] > max) {
@@ -121,12 +122,19 @@
 // выведите на экран наибольший ЧЕТНЫЙ элемент массива
 
 // let arr = new Array(10);
-// let maxEvenElement = 0;
-
+// let maxEvenElement;
+// let min = -100;
+// let max = 100;
+// let isFirstEnty = true;
 // for (let i = 0; i < arr.length; i++) {
-//     arr[i] = Math.floor(Math.random() * 100);
+
+//     arr[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+
 //     if (arr[i] % 2 === 0) {
-//         if (arr[i] > maxEvenElement) {
+//         if(isFirstEnty){
+//             maxEvenElement = arr[i];
+//             isFirstEnty = false;
+//         }else if (arr[i] > maxEvenElement) {
 //             maxEvenElement = arr[i]
 //         }
 //     }
@@ -135,6 +143,7 @@
 // console.log(arr);
 // console.log(maxEvenElement);
 
+
 // 11. дан массив из 10 случайных чисел (НЕ ПОСЛЕДОВАТЕЛЬНЫХ)
 // пользователь вводит число n, вывести в консоль элемент массива
 // который наиболее близок к n (если таких элементов несколько, вывести несколько)
@@ -142,16 +151,16 @@
 let inputUserNumber = +prompt('enter number');
 
 let arr = new Array(10);
-let min = Math.ceil(-100);
-let max = Math.floor(100);
-let minimumDistance = 0;
-let tempMinDistance = 0;
+let min = -100;
+let max = 100;
+let minimumDistance;
+let tempMinDistance;
 for (let i = 0; i < arr.length; i++) {
     // Максимум и минимум включаются
     arr[i] = Math.floor(Math.random() * (max - min + 1)) + min;
-    
+
     if (i === 0) {
-        minimumDistance = Math.abs(arr[0] - inputUserNumber);
+        minimumDistance = Math.abs(arr[i] - inputUserNumber);
     } else {
         if (Math.abs(arr[i] - inputUserNumber) <= minimumDistance) {
             tempMinDistance = minimumDistance;
