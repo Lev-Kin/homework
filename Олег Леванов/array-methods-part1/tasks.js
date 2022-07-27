@@ -25,18 +25,13 @@ let people2 = ['Connor', 'Stanley', 'Leo', 'Albert', 'Owen', 'Oliver', 'Ethan', 
 // console.log(arrResult);
 
 // 4. Объедините массивы people1 и people2 так, чтобы в получившемся массиве не было одинаковых имен.
-let arrResult = []
+let arrResult = [];
 for (let i = 0; i < people1.length; i++) {
     if (!people2.includes(people1[i])) {
         arrResult.push(people1[i]);
     }
 }
-
-for (let i = 0; i < people2.length; i++) {
-    if (!people1.includes(people2[i])) {
-        arrResult.push(people2[i]);
-    }
-}
+arrResult.push(...people2);
 
 console.log(arrResult);
 
