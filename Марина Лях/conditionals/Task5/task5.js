@@ -13,11 +13,13 @@
 
 let ageF = +prompt('введите возраст Федота');
 let ageM = +prompt('введите возраст Митрофана');
-
+let different;
 if (ageF > ageM){
-   alert(`Федот старше Митрофана на 3`);
+   different = ageF - ageM;
+   alert(`Федот старше Митрофана на ${different}`);
 }  else if (ageF < ageM) {
-   alert(`Митрофан старше Федота на 5`);
+   different = ageM - ageF;
+   alert(`Митрофан старше Федота на ${different}`);
 }  else if (ageF === ageM) {
    alert(`Федот и Митрофан одного возраста`);
 }  else if (isNaN(ageF) || isNaN(ageM)){
