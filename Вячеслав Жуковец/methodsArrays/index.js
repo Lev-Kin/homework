@@ -59,41 +59,18 @@
 
 // 5. Отсортируйте получившийся массив по алфавиту
 
-let people1 = ['Samuel', 'Jack', 'Thomas','Henry','Leo','Connor','David','Ryan'];
-let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thomas'];
-let people3 = [];
+// let people1 = ['Samuel', 'Jack', 'Thomas','Henry','Leo','Connor','David','Ryan'];
+// let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thomas'];
+// let people3 = [];
 
-for (let i = 0; i < people1.length; i++) {
-    if (!people2.includes(people1[i])) {
-        people3.push(people1[i]);
-    }
-}
-for (let j = 0; j < people2.length; j++) {
-    if (!people1.includes(people2[j])) {
-        people3.push(people2[j]);
-    }
-}
-console.log(people3.sort());
-
-
-
-
-
-// 1. Дан массив ["John", "Peter", "David", "Lambert", "Eddie", "Janett", "Franz"];
-// Вырезать из массива "David", "Lambert", "Eddie" и записать их в отдельный массив
-
-// 2. Дан массив ["John", "Peter", "David", "Lambert", "Eddie", "Janett", "Franz"];
-// Переставить "Janett", "Franz" в начало массива
-
-// 3. Дан массив ["John", "Peter", "David", "Lambert", "Eddie", "Janett", "Franz"];
-// Заменить "Eddie", "Janett" на "Oleg","Valerchik"
-
-// 4. Дан массив ["John", "Peter", "David", "Lambert", "Eddie", "Janett", "Franz"];
-// "Перевернуть" массив, заменить первые 4 элемента на Митрофанов ("Mitrofan")
-
-// 5. Даны два массива 
-// ["John", "Peter", "David", "Lambert", "Eddie", "Janett", "Franz"]
-// ["Nikodim","Evlampij","Aristarkh","Drogolub","Vitalij"]
-
-// взять из второго массива все имена начина с "Aristarkh" (включительно)
-// и добавить их в 1ый массив (не должно получится двумерного массива)
+// for (let i = 0; i < people1.length; i++) {
+//     if (!people2.includes(people1[i])) {
+//         people3.push(people1[i]);
+//     }
+// }
+// for (let j = 0; j < people2.length; j++) {
+//     if (!people1.includes(people2[j])) {
+//         people3.push(people2[j]);
+//     }
+// }
+// console.log(people3.sort());
