@@ -143,7 +143,7 @@ let arr = [1, 1, 1, 4, 4, 5, 1, 6, 6, 74, 74, 74, 3];
 function leaveOnlyDuplicateNumbers([...arr]) {
 
     let arrTemp = [];
-    for (var i = 0; i < arr.length - 1; i++) {
+    for (let i = 0; i < arr.length - 1; i++) {
         if (!(arrTemp.indexOf(arr[i]) > -1) && !(arr[i] != arr[i + 1])) {
             arrTemp.push(arr[i]);
         }
