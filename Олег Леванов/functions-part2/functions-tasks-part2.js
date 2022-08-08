@@ -3,21 +3,18 @@
 // возвращает тот массив сумма элементов которого
 // наибольшая
 
-// let n = Math.floor(Math.random() * 8) + 2; // строк
-// let m = Math.abs(Math.ceil(8 - n)); // столбцов
-
 // let arr = [];
 // let max = 100;
 // let min = -100;
 // let countElement = 8;
-// for (let i = 0; i < n; i++) {
+// for (let i = 0; ; i++) {
 //     if (countElement === 0) { break; }
 
 //     arr[i] = [];
-//     for (let j = 0; j < Math.ceil(Math.random() * m + 1) + countElement; j++) {
+//     for (let j = 0; j < Math.floor(Math.random() * countElement) + i + countElement; j++) {
 //         if (countElement === 0) { break; }
 
-//         arr[i][j] = Math.floor(Math.random() * (max - min + 1)) + min;;
+//         arr[i][j] = Math.floor(Math.random() * (max - min + 1)) + min;
 //         countElement--;
 //     }
 // }
