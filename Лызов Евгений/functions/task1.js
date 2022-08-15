@@ -145,19 +145,41 @@
 // повторялись в исходном. Массив, который возвращает
 // функция [1,4,6,74]
 
+// let array = [1, 1, 1, 4, 4, 5, 1, 6, 6, 74, 74, 74, 3];
 
+// function createArray() {
+//    let newArray = [];
+
+//    for (let i = 0; i < array.length; i++) {
+
+
+//       for (let j = i + 1; j < array.length; j++) {
+//          if (newArray.includes(array[i])) {
+//             continue;
+//          } else if (array[i] === array[j]) {
+//             newArray.push(array[i]);
+//          }
+//       }
+
+//    }
+//    return newArray
+// }
+
+
+// console.log(createArray());
 
 // 7. Написать функцию, которая принимает случайный
 // двумерный массив (разной длины) из 8 элементов. Функция
 // возвращает тот массив сумма элементов которого
 // наибольшая
 
-// function getBigArray(arr) {
+
+// function createNewArray(arr) {
 
 // }
 
+// console.log(createNewArray([[12, 3, 4], [24, 5, 6, 4, 6], [1, 2], [1, 56, 7, 8], [3, 55, 77, 88, 99], [5, 4, 3, 2, 1, 5, 6, 7, 8, 9], [3, 45, 5, 56, 76, 88, 78, 235345, 76567], [1, 2, 3]]));
 
-// console.log(getBigArray);
 
 // 8. Написать программу, которая спрашивает у пользователя сколько ему
 // лет. В программе должна присутствовать функция validator(), которая
@@ -166,6 +188,29 @@
 // должна проверять, чтобы введенный возраст не был отрицательным,
 // меньше 5 лет и больше 100, чтобы возраст не был строкой, и не был
 // null или undefined.
+
+
+
+function validator(age) {
+   if (+age >= 5 & +age <= 100 & age !== '' & age !== null & age !== undefined) {
+      return true
+   }
+}
+
+function showAge() {
+   let userAge = prompt('сколько вам лет?');
+
+   if (validator(userAge)) {
+      return alert(`“Вам ${userAge} лет”`)
+   } else {
+      return alert('Данные введены не правильно')
+   }
+}
+
+showAge();
+
+
+
 
 
 
