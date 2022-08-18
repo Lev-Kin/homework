@@ -176,9 +176,62 @@
 
 // function createNewArray(arr) {
 
+//    let newArray = [];
+//    let summ = 0;
+
+//    for (let i = 0; i < arr.length; i++) {
+//       console.log(arr[i]);
+
+//       for (let j = 0; j < arr[i].length; j++) {
+
+//          summ += arr[i][j];
+//          newArray.push(summ);
+
+//       }
+//    }
+//    // console.log(summ);
+//    return newArray
 // }
 
 // console.log(createNewArray([[12, 3, 4], [24, 5, 6, 4, 6], [1, 2], [1, 56, 7, 8], [3, 55, 77, 88, 99], [5, 4, 3, 2, 1, 5, 6, 7, 8, 9], [3, 45, 5, 56, 76, 88, 78, 235345, 76567], [1, 2, 3]]));
+
+
+
+
+let arr = [
+   [12, 3, 4],
+   [24, 5, 6, 4, 6],
+   [1, 2],
+   [1, 56, 7, 8],
+   [3, 55, 77, 88, 99],
+   [5, 4, 3, 2, 1, 5, 6, 7, 8, 9],
+   [3, 45, 5, 56, 76, 88, 78, 235345, 76567],
+   [1, 2, 3]
+];
+
+const resultFunction = function (someArr) {
+   const sumAllElementsOfArr = someArr.map((item, index, mass) => {
+      let firstValue = 0;
+      for (let i = 0; i < mass[index].length; i++) {
+         firstValue += mass[index][i];
+      }
+      return firstValue;
+   });
+
+
+   let bigNum = 0;
+   const findTheBiggestNum = sumAllElementsOfArr.reduce((acc, item, index) => {
+      if (bigNum < item) {
+         bigNum = item;
+         acc = index;
+      }
+      return acc;
+   }, 0);
+
+   return someArr[findTheBiggestNum];
+};
+console.log(resultFunction(arr));
+
 
 
 // 8. Написать программу, которая спрашивает у пользователя сколько ему
@@ -191,23 +244,23 @@
 
 
 
-function validator(age) {
-   if (+age >= 5 & +age <= 100 & age !== '' & age !== null & age !== undefined) {
-      return true
-   }
-}
+// function validator(age) {
+//    if (+age >= 5 && +age <= 100 && age !== '' && age !== null && age !== undefined) {
+//       return true
+//    }
+// }
 
-function showAge() {
-   let userAge = prompt('сколько вам лет?');
+// function showAge() {
+//    let userAge = prompt('сколько вам лет?');
 
-   if (validator(userAge)) {
-      return alert(`“Вам ${userAge} лет”`)
-   } else {
-      return alert('Данные введены не правильно')
-   }
-}
+//    if (validator(userAge)) {
+//       return alert(`“Вам ${userAge} лет”`)
+//    } else {
+//       return alert('Данные введены не правильно')
+//    }
+// }
 
-showAge();
+// showAge();
 
 
 
@@ -221,3 +274,40 @@ showAge();
 // сообщение «Загаданное число меньше указанного вами» или
 // «Загаданное число больше указанного вами». Выигрывает тот игрок,
 // который за наименьшее количество попыток отгадает число. 
+
+
+let maxNumber;
+let trueNumber;
+
+
+function rulesGame() {
+   maxNumber = +prompt('Игрок 1 введите максимальое число!');
+
+   trueNumber = +prompt(`Игрок2 введите число от 1 до ${maxNumber}`);
+}
+
+function theGame() {
+
+   rulesGame();
+
+   let countOfTryesPlayer = 1;
+   let attempt;
+
+   for (let i = 0; i < maxNumber; i++) {
+      attempt = prompt('Введите верное число');
+
+      if (+attempt === trueNumber && attempt !== '' && attempt !== null) {
+         break;
+      } else if (+attempt < trueNumber) {
+         alert(`Загаданное число больше указанного вами`);
+         countOfTryesPlayer++;
+      } else if (+attempt > trueNumber) {
+         alert(`Загаданное число меньше указанного вами`);
+         countOfTryesPlayer++;
+      }
+   }
+   return alert(`Вы выиграли , количество попыток ${countOfTryesPlayer}`);
+}
+
+theGame();
+
