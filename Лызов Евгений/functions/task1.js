@@ -198,39 +198,41 @@
 
 
 
-let arr = [
-   [12, 3, 4],
-   [24, 5, 6, 4, 6],
-   [1, 2],
-   [1, 56, 7, 8],
-   [3, 55, 77, 88, 99],
-   [5, 4, 3, 2, 1, 5, 6, 7, 8, 9],
-   [3, 45, 5, 56, 76, 88, 78, 235345, 76567],
-   [1, 2, 3]
-];
+// let arr = [
+//    [12, 3, 4],
+//    [24, 5, 6, 4, 6],
+//    [1, 2],
+//    [1, 56, 7, 8],
+//    [3, 55, 77, 88, 99],
+//    [5, 4, 3, 2, 1, 5, 6, 7, 8, 9],
+//    [3, 45, 5, 56, 76, 88, 78, 235345, 76567],
+//    [1, 2, 3]
+// ];
 
-const resultFunction = function (someArr) {
-   const sumAllElementsOfArr = someArr.map((item, index, mass) => {
-      let firstValue = 0;
-      for (let i = 0; i < mass[index].length; i++) {
-         firstValue += mass[index][i];
-      }
-      return firstValue;
-   });
+// const resultFunction = function (someArr) {
+//    const sumAllElementsOfArr = someArr.map((item, index, mass) => {
+//       let firstValue = 0;
+//       for (let i = 0; i < mass[index].length; i++) {
+//          firstValue += mass[index][i];
+//       }
+//       return firstValue;
+//    });
 
 
-   let bigNum = 0;
-   const findTheBiggestNum = sumAllElementsOfArr.reduce((acc, item, index) => {
-      if (bigNum < item) {
-         bigNum = item;
-         acc = index;
-      }
-      return acc;
-   }, 0);
 
-   return someArr[findTheBiggestNum];
-};
-console.log(resultFunction(arr));
+//    let bigNum = 0;
+//    const findTheBiggestNum = sumAllElementsOfArr.reduce((acc, item, index) => {
+//       if (bigNum < item) {
+//          bigNum = item;
+//          acc = index;
+//       }
+//       return acc;
+
+//    }, 0);
+
+//    return someArr[findTheBiggestNum];
+// };
+// console.log(resultFunction(arr));
 
 
 
@@ -273,41 +275,81 @@ console.log(resultFunction(arr));
 // Игрок1 пытается отгадать число n, если не угадал выводится
 // сообщение «Загаданное число меньше указанного вами» или
 // «Загаданное число больше указанного вами». Выигрывает тот игрок,
-// который за наименьшее количество попыток отгадает число. 
+// который за наименьшее количество попыток отгадает число.
 
 
-let maxNumber;
-let trueNumber;
 
 
-function rulesGame() {
-   maxNumber = +prompt('Игрок 1 введите максимальое число!');
+let player1 = prompt('Игрок 1 введите свое имя');
+let player2 = prompt('Игрок 2 введите свое имя');
 
-   trueNumber = +prompt(`Игрок2 введите число от 1 до ${maxNumber}`);
-}
 
-function theGame() {
+function userOnePlay() {
+   let maxNumOfUseOne = +prompt(`${player1} введи максимальное число до которого можно загадывать`);
+   let trueNumOfUserTwo = +prompt(`${player2} введите число от 1 до ${maxNumOfUseOne}, которое хотите загадать ${player1}`);
+   let countOfUserOne = 0;
+   let numOfUserOne;
 
-   rulesGame();
-
-   let countOfTryesPlayer = 1;
-   let attempt;
-
-   for (let i = 0; i < maxNumber; i++) {
-      attempt = prompt('Введите верное число');
-
-      if (+attempt === trueNumber && attempt !== '' && attempt !== null) {
+   for (; ;) {
+      numOfUserOne = +prompt(`${player1} введите число`);
+      if (numOfUserOne === trueNumOfUserTwo) {
+         countOfUserOne++;
+         alert(`Вы угадали число за ${countOfUserOne} попыток`);
          break;
-      } else if (+attempt < trueNumber) {
-         alert(`Загаданное число больше указанного вами`);
-         countOfTryesPlayer++;
-      } else if (+attempt > trueNumber) {
-         alert(`Загаданное число меньше указанного вами`);
-         countOfTryesPlayer++;
+      } else if (numOfUserOne < trueNumOfUserTwo) {
+         countOfUserOne++;
+         alert('Загаданное число больше указанного вами');
+      } else if (numOfUserOne > trueNumOfUserTwo) {
+         countOfUserOne++;
+         alert('Загаданное число меньше указанного вами');
       }
    }
-   return alert(`Вы выиграли , количество попыток ${countOfTryesPlayer}`);
+
+   return countOfUserOne;
 }
 
-theGame();
+
+function userTwoPlay() {
+   let maxNumOfUseTwo = +prompt(`${player2} введи максимальное число до которого можно загадывать`);
+   let trueNumOfUserOne = +prompt(`${player1} введите число от 1 до ${maxNumOfUseTwo}, которое хотите загадать ${player2}`);
+   let countOfUserTwo = 0;
+   let numOfUserTwo;
+
+   for (; ;) {
+      numOfUserTwo = +prompt(`${player2} введите число`);
+      if (numOfUserTwo === trueNumOfUserOne) {
+         countOfUserTwo++;
+         alert(`Вы угадали число за ${countOfUserTwo} попыток`);
+         break;
+      } else if (numOfUserTwo < trueNumOfUserOne) {
+         countOfUserTwo++;
+         alert('Загаданное число больше указанного вами');
+      } else if (numOfUserTwo > trueNumOfUserOne) {
+         countOfUserTwo++;
+         alert('Загаданное число меньше указанного вами');
+      }
+   }
+
+   return countOfUserTwo;
+}
+
+
+function game(player1, player2) {
+
+   let userOneAtt = userOnePlay();
+
+   let userTwoAtt = userTwoPlay();
+
+   if (userOneAtt === userTwoAtt) {
+      alert('Ничья');
+   } else if (userOneAtt > userTwoAtt) {
+      alert(`победил игрок ${player1} `);
+   } else if (userOneAtt < userTwoAtt) {
+      alert(`победил игрок ${player2} `);
+   }
+}
+
+game(player1, player2);
+
+
 
